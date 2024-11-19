@@ -1,0 +1,11 @@
+package com.liyan.news.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val Purple200 = Color(0xFFD32F2F)
+val Purple500 = Color(0xFF1da8fe)
+val Purple700 = Color(0xFFFFCDD2)
+val Teal200 = Color(0xFF03DAC5)
+val BgColor = Color(0xFFF8F8F8)
+val TitleColor = Color(0xFF333333)
+val InfoColor = Color(0xFF888888)
