@@ -28,7 +28,6 @@ class SplashActivity : ComponentActivity() {
             val showPop by viewModel.showPop.observeAsState(PreferencesHelper.showPop)
             val next by viewModel.next.observeAsState(!showPop)
             NewsTheme {
-                SplashPage(next)
                 AgreementDialog(
                     showPop,
                     onDismiss = {
@@ -41,6 +40,7 @@ class SplashActivity : ComponentActivity() {
                         PreferencesHelper.showPop = false
                     }
                 )
+                SplashPage(next)
             }
         }
     }

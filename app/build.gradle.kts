@@ -1,5 +1,3 @@
-import com.google.api.AnnotationsProto.http
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -28,6 +26,14 @@ android {
         buildConfigField("String", "agreementUrl", agreementUrl)
         buildConfigField("String", "privacyUrl", privacyUrl)
     }
+    signingConfigs {
+        create("keyStore") {
+            keyAlias = properties["RELEASE_KEY_ALIAS"].toString()
+            keyPassword = properties["RELEASE_KEY_PASSWORD"].toString()
+            storeFile = file(properties["RELEASE_STORE_FILE"].toString())
+            storePassword = properties["RELEASE_STORE_PASSWORD"].toString()
+        }
+    }
 
     buildTypes {
         release {
@@ -36,6 +42,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("keyStore")
         }
     }
     compileOptions {

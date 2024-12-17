@@ -38,7 +38,7 @@ fun CycleProgress(modifier: Modifier = Modifier, state: Boolean, done: (() -> Un
     // 动画逻辑
     LaunchedEffect(state) {
         ValueAnimator.ofFloat(animatedValue, progress).apply {
-            duration = 600
+            duration = 1000
             addUpdateListener {
                 animatedValue = it.animatedValue as Float
                 if (animatedValue > 0.5f && !state) {
